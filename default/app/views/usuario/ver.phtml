@@ -48,6 +48,7 @@
                                       <h5 class="card-title">${usuario.nombre}</h5>
                                       <p class="card-text">${usuario.nombre} - ${usuario.apellido}</p>
                                       <button type="button" class="seleccion btn btn-primary" value="${usuario.id}">Editar</button>
+                                      <button type="button" class="borrado btn btn-danger" value="${usuario.id}">Borrar usuario</button>
                                     </div>
                                   </div></div>`;
                   });
@@ -63,7 +64,45 @@
       $('#datos').on('click', '.seleccion', function(){
         let id = $(this).attr('value');
         window.location = 'http://localhost/usuariofull/usuario/editar/'+id;
-      })
+      });
+
+      $('#datos').on('click', '.borrado', function(){
+        let id = $(this).attr('value');
+        $.ajax({
+          type: "delete",
+          cache: false,
+          url: 'http://localhost/backendfull/api/usuario/'+id,
+          success: function(result){
+            if(result){
+              swal({
+                          icon: 'success',
+                          title: 'Usuario eliminado',
+                          text: 'Refrescando...',
+                          closeOnClickOutside: false,
+                          button: {
+                  text: "Ok",
+                  visible: false,
+                            },
+                          timer: 1500
+                    }).then(function() {
+                      swal.close();
+                      window.location.href = "<?php echo PUBLIC_PATH.'usuario/ver' ?>";
+                    })
+            }else{
+              swal({
+    		                  icon: 'error',
+    		                  title: 'Error al borrar el usuario',
+    		                  button: {
+    								      text: "Ok",
+    								      visible: false,
+    		                      },
+    		                  closeOnClickOutside: false,
+    		                  timer: 1500
+    		              })
+            }
+          }
+        })
+      });
 
      });
 </script>
