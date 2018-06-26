@@ -1,0 +1,70 @@
+<!-- Row -->
+<div class="row margen-pedido">
+  <div class="col-md-12">
+    <h2 class="text-center">Crear usuario</h2>
+    <div class="form-group">
+    <form class="contact-form" id="formulario">
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          <label><b>Nombre</b></label>
+          <input id="nombre" name="nombre" class="form-control" placeholder="Nombre">
+          <label>Apellido</label>
+          <input id="apellido" name="apellido" class="form-control" placeholder="Apellido">
+          <label>Correo</label>
+          <input id="correo" name="correo" class="form-control" placeholder="Correo">
+          <label>Login</label>
+          <input id="login" name="login" class="form-control" placeholder="Usuario para el login">
+          <br>
+          <input type="submit" class="btn btn-primary" value="Editar Usuario">
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#formulario").on('submit', function(e){
+      e.preventDefault();
+      let nombre = $("#nombre").val();
+      let apellido = $("#apellido").val();
+      let correo = $("#correo").val();
+      let login = $("#login").val();
+      $.ajax({
+        type: 'post',
+        cache: false,
+        url: 'http://localhost/backendfull/api/usuario/crearUsuario',
+        data: {"nombre":nombre, "apellido":apellido, "correo":correo, "login":login},
+        success: function(result){
+          if(result){
+            swal({
+                        icon: 'success',
+                        title: 'Usuario creado',
+                        text: 'Será redireccionado...',
+                        closeOnClickOutside: false,
+                        button: {
+                text: "Ok",
+                visible: false,
+                          },
+                        timer: 1500
+                  }).then(function() {
+                    swal.close();
+                    window.location.href = "<?php echo PUBLIC_PATH.'usuario/ver' ?>";
+                  })
+          }else{
+            swal({
+  		                  icon: 'error',
+  		                  title: 'Error al crear el usuario',
+  		                  button: {
+  								      text: "Ok",
+  								      visible: false,
+  		                      },
+  		                  closeOnClickOutside: false,
+  		                  timer: 1500
+  		              })
+          }
+        }
+      })
+    })
+  })
+</script>

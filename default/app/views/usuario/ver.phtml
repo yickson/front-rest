@@ -1,0 +1,69 @@
+<!-- Row -->
+<div class="row margen-pedido">
+  <div class="col-md-12">
+    <h2 class="text-center">Buscar usuario</h2>
+    <div class="form-group">
+    <form class="contact-form" id="formulario">
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          <label><b>Nombre del usuario</b></label>
+          <input id="usuario" name="usuario" class="form-control" placeholder="Nombre, Apellido, Correo">
+          <br>
+          <input type="submit" class="btn btn-primary" value="Buscar usuario">
+          <?php echo Html::link('usuario/crear', 'Crear Usuario', 'class="btn btn-success"') ?>
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+<div class="row margen-resultados">
+  <div class="col-md-12">
+      <h2 class="text-center">Resultados</h2>
+  </div>
+  <div id="datos" class="row">
+  </div>
+</div>
+<!-- /Row -->
+<!-- /Blog -->
+<script>
+     $(function() {
+        $("#formulario").on('submit', function(e){
+          e.preventDefault();
+          var dato = $("#usuario").val();
+          var objeto = '';
+
+            $.ajax({
+              type: 'get',
+              cache: false,
+              url: 'http://localhost/backendfull/api/usuario/buscarUsuario/'+dato,
+              success: function(result){
+                console.log(result);
+                $("#datos").empty();
+                if(Object.keys(result).length > 0){
+                  $.each(result, function(i, usuario){
+                        objeto += `<div class="col-md"><div class="card margen-cartas" style="width: 18rem;">
+                                    <div class="card-body">
+                                      <h5 class="card-title">${usuario.nombre}</h5>
+                                      <p class="card-text">${usuario.nombre} - ${usuario.apellido}</p>
+                                      <button type="button" class="seleccion btn btn-primary" value="${usuario.id}">Editar</button>
+                                    </div>
+                                  </div></div>`;
+                  });
+                }else{
+                  objeto += `<div class="col-md-12"><h3 class="text-center">No existen resultados para el término de búsqueda: ${dato}</h3></div>`
+                }
+                $("#datos").append(objeto);
+              }
+          });
+        });
+
+
+      $('#datos').on('click', '.seleccion', function(){
+        let id = $(this).attr('value');
+        window.location = 'http://localhost/usuariofull/usuario/editar/'+id;
+      })
+
+     });
+</script>
