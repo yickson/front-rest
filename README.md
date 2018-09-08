@@ -1,55 +1,14 @@
 ## Sistema de usuarios mediante servicios
 
-El sistema realiza busqueda, creación, edición de usuarios mediante la API que esta localizada en
-https://github.com/yickson/backend-api
+Cliente que realiza peticiones mediante REST a https://github.com/yickson/backendcts2
 
-REST-API
+Basado en tecnología de JWT (Json Web Token) mediante Ajax con Jquery.
 
-Obtener todos los usuarios - Método **GET**:
-http://localhost/backendfull/api/usuario
+Tiene un sistema de login el cual debes ingresar con las credenciales:
 
-Obtener un usuario por el ID - Método **GET**:
-http://localhost/backendfull/api/usuario/$id
+**correo**: admin@admin.com
+**contraseña**: admin
 
-Donde **$id** es el Id en la base de datos
+Una vez ingresado podrás ver una web de bienvenida listado de usuarios mediante un sistema de paginación mediante DataTable el cual te da la opción de buscar, crear, editar y eliminar a cualquier usuario, donde podrás delegar el rol que le quieres dar al usuario.
 
-Obtener un usuario por nombre, apellido o correo - Método **GET**
-http://localhost/backendfull/api/usuario/buscarUsuario/$dato
-
-Donde **$dato** puede ser el nombre, apellido o el correo.
-
-Realizar la creación de un usuario - Método **POST**:
-http://localhost/backendfull/api/usuario/crearUsuario
-
-El formato para hacer la creación del usuario debe ser como el siguiente para hacer pruebas en PostMan
-
-```json
-// Estructura JSON
-{
-	"login": "condorito",
-	"nombre": "Condorito",
-	"apellido": "Condorin",
-	"correo": "condorito@gmail.com"
-}
-```
-
-Realizar la edición de un usuario - Método **PUT**:
-http://localhost/backendfull/api/usuario/editarUsuario
-
-```json
-// Estructura JSON
-{
-	"id": "3",
-	"nombre": "Condorito",
-	"apellido": "Condorin",
-	"correo": "condorito@gmail.com"
-}
-```
-Eliminar un usuario - Método **DELETE**
-http://localhost/backendfull/api/usuario/$id
-
-Siendo **$id** el ID del usuario en la base de datos
-
-Recuerda que este es un sistema básico REST para funcionalidades más avanzadas como delegación de Roles a los usuarios es mejor que utilices directamente el sistema de Backend para hacer los cambios.
-
-Cabe mencionar que todos los usuarios creados en esta plataforma tendrán la clave por defecto casa1357
+La duración del login en este caso del token tiene un tiempo máximo de 20 minutos, una vez agotado el tiempo, se saldrá del sistema donde deberás volver a ingresar las credenciales.
