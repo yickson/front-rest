@@ -1,6 +1,6 @@
 ## Sistema de usuarios mediante servicios
 
-Cliente que realiza peticiones mediante REST a https://github.com/yickson/backendcts2
+Cliente que realiza peticiones mediante REST a https://github.com/yickson/backendcts2 realizar la clonación para poder realizar las pruebas, se recomienda servidor Xampp
 
 Basado en tecnología de JWT (Json Web Token) mediante Ajax con Jquery.
 
