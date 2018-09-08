@@ -5,21 +5,23 @@
     <div class="form-group">
       <div class="row">
         <div class="col-xs-12 col-md-12">
-          <label>Nombre</label>
-          <input id="nombre" name="nombre" class="form-control" autocomplete="off" placeholder="Ingresar el nombre">
-          <label>Correo</label>
-          <input id="correo" name="correo" class="form-control" autocomplete="off" placeholder="Ingresar el correo">
-          <label>Contraseña</label>
-          <input id="clave" type="password" name="clave" autocomplete="off" class="form-control">
-          <label>Rol</label>
-          <select id="rol" class="form-control" name="rol">
-            <option value="1">Administrador</option>
-            <option value="2">Editor</option>
-            <option value="3">Moderador</option>
-          </select>
-          <br>
-          <input id="crear" type="button" class="btn btn-primary" value="Crear Usuario">
-          <button id="volver" type="button" class="btn btn-primary">Volver</button>
+          <form>
+            <label>Nombre</label>
+            <input id="nombre" name="nombre" class="form-control" autocomplete="off" placeholder="Ingresar el nombre" required />
+            <label>Correo</label>
+            <input id="correo" name="correo" class="form-control" autocomplete="off" placeholder="Ingresar el correo" required />
+            <label>Contraseña</label>
+            <input id="clave" type="password" name="clave" autocomplete="off" class="form-control" required />
+            <label>Rol</label>
+            <select id="rol" class="form-control" name="rol">
+              <option value="1">Administrador</option>
+              <option value="2">Editor</option>
+              <option value="3">Moderador</option>
+            </select>
+            <br>
+            <input id="crear" type="button" class="btn btn-primary" value="Crear Usuario">
+            <button id="volver" type="button" class="btn btn-primary">Volver</button>
+          </form>
         </div>
       </div>
     </div>

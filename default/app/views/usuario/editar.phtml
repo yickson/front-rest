@@ -6,20 +6,22 @@
       <div class="row">
         <div class="col-md-2"></div>
         <div class="col-xs-12 col-md-8">
-          <input id="id" type="hidden" name="id" value="<?php echo $id ?>">
-          <label>Nombre</label>
-          <input id="nombre" name="nombre" class="form-control" autocomplete="off" placeholder="Ingresar nombre">
-          <label>Correo</label>
-          <input id="correo" name="correo" class="form-control" autocomplete="off" placeholder="Ingresar correo">
-          <label>Rol</label>
-          <select id="rol" class="form-control" name="rol">
-            <option value="1">Administrador</option>
-            <option value="2">Editor</option>
-            <option value="3">Moderador</option>
-          </select>
-          <br>
-          <input id="editar" type="button" class="btn btn-primary" value="Editar Usuario">
-          <button id="volver" type="button" class="btn btn-primary">Volver</button>
+          <form>
+            <input id="id" type="hidden" name="id" value="<?php echo $id ?>">
+            <label>Nombre</label>
+            <input id="nombre" name="nombre" class="form-control" autocomplete="off" placeholder="Ingresar nombre" required>
+            <label>Correo</label>
+            <input id="correo" name="correo" class="form-control" autocomplete="off" placeholder="Ingresar correo" required>
+            <label>Rol</label>
+            <select id="rol" class="form-control" name="rol">
+              <option value="1">Administrador</option>
+              <option value="2">Editor</option>
+              <option value="3">Moderador</option>
+            </select>
+            <br>
+            <input id="editar" type="button" class="btn btn-primary" value="Editar Usuario">
+            <button id="volver" type="button" class="btn btn-primary">Volver</button>
+          </form>
         </div>
         <div class="col-md-2"></div>
       </div>
