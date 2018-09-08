@@ -5,22 +5,25 @@
   <title>Sistema de solicitud de usuarios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="http://localhost/libreria/img/favicon.png">
-  <?php //Tag::css('bootstrap.min') ?>
   <?php Tag::css('font-awesome.min') ?>
-  <?php Tag::css('cosmo') ?>
+  <?php Tag::css('litera') ?>
   <?php //Tag::css('style') ?>
   <?php Tag::css('libreria') ?>
   <?= Html::includeCss() ?>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>
+
   <?php echo Tag::js('jquery.min') ?>
+  <?php echo Tag::js('bootstrap.min') ?>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
 </head>
-<body class="fondo_pedido">
+<body>
   <?php View::partial('app/header') ?>
   <div class="container">
     <?php View::content() ?>
   </div>
   <!-- jQuery Plugins -->
-
-  <?php echo Tag::js('bootstrap.min') ?>
   <?php echo Tag::js('owl.carousel.min') ?>
   <?php echo Tag::js('jquery.magnific-popup') ?>
   <?php echo Tag::js('main') ?>

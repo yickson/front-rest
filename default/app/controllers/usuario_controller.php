@@ -8,7 +8,7 @@ class UsuarioController extends AppController
 
   public function index()
   {
-    Redirect::toAction('ver');
+    
   }
 
   public function ver()

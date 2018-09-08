@@ -1,0 +1,24 @@
+<div class="row ">
+  <!-- home content -->
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+      <h1 class="text-center">Bienvenido, <span id="nombre"></span></h1>
+      <h4 class="text-center">Lista de usuarios</h4>
+      <button id="crear" type="button" class="btn btn-primary">Crear usuario</button>
+      <button id="cerrar" type="button" class="btn btn-danger">Cerrar sesión</button>
+      <hr>
+      <table id="tabla_historial" class="table table-striped" style="width:100%">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+      </table>
+  </div>
+  <div class="col-md-2"></div>
+  <!-- /home content -->
+</div>
+<?php echo Tag::js('principal') ?>

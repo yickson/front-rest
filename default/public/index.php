@@ -82,7 +82,7 @@ define('CORE_PATH', dirname(dirname(APP_PATH)).'/core/');
  *
  *  EN PRODUCCION ESTA CONSTANTE DEBERÍA SER ESTABLECIDA MANUALMENTE
  */
-define('PUBLIC_PATH', 'http://localhost/usuariofull/'); // - index.php string[9]
+define('PUBLIC_PATH', 'http://localhost/front-rest/'); // - index.php string[9]
 
 /**
  * En producción descomentar las 3 lineas de arriba y usar const

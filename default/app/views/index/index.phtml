@@ -1,17 +1,18 @@
-
-    <div class="row ">
-
-      <!-- home content -->
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-          <h1 class="text-center">Aplicación de gestión de usuarios</h1>
-          <h4 class="text-center">Sistema web de usuarios
-          </h4>
-          <div class="text-center">
-            <?php echo Html::link('usuario/ver', 'Buscar usuario', 'class="btn btn-primary"')  ?>
-          </div>
-      </div>
-      <div class="col-md-3"></div>
-      <!-- /home content -->
-
-    </div>
+<div class="row ">
+  <!-- home content -->
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+      <h1 class="text-center">Cliente de gestión de usuarios</h1>
+      <h4 class="text-center">Sistema web de usuarios
+      </h4>
+        <label>Correo</label>
+        <input id="correo" type="text" name="correo" class="form-control">
+        <label>Contraseña</label>
+        <input id="clave" type="password" name="clave" class="form-control">
+        <br>
+        <button id="login" type="button" class="btn btn-primary">Entrar al sistema</button>
+  </div>
+  <div class="col-md-3"></div>
+  <!-- /home content -->
+</div>
+<?php echo Tag::js('login') ?>
